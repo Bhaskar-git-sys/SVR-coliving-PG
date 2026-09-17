@@ -47,7 +47,15 @@ export default function DashboardLayout({
   }, []);
 
   return (
-    <div className="min-h-screen bg-navy-900 text-white">
+    <div className="relative min-h-screen overflow-hidden bg-navy-900 text-white">
+      {/* Subtle SVR logo watermark across dashboard pages */}
+      <img
+        src={logo}
+        alt=""
+        aria-hidden="true"
+        className="pointer-events-none fixed left-1/2 top-1/2 z-0 w-[min(75vw,52rem)] -translate-x-1/2 -translate-y-1/2 opacity-[0.045] grayscale mix-blend-screen"
+      />
+
       {/* Top Nav */}
       <header className="sticky top-0 z-50 glass-dark border-b border-navy-700">
         <div className="max-w-7xl mx-auto px-4 lg:px-8">
@@ -163,7 +171,7 @@ export default function DashboardLayout({
       </header>
 
       {/* Content */}
-      <main className="max-w-7xl mx-auto px-4 lg:px-8 py-8">{children}</main>
+      <main className="relative z-10 max-w-7xl mx-auto px-4 lg:px-8 py-8">{children}</main>
     </div>
   );
 }
