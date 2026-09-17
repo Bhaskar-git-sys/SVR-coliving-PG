@@ -14,9 +14,8 @@ export function authenticate(username: string, password: string): AppUser | null
   localStorage.setItem(SESSION_KEY, JSON.stringify(user));
   return user;
 }
-
 export function getCurrentUser(): AppUser | null {
-  try { return JSON.parse(localStorage.getItem(SESSION_KEY) || 'null') as AppUser | null; } catch { return null; }
+  try { const user = JSON.parse(localStorage.getItem(SESSION_KEY) || 'null') as AppUser | null; return user && (user.role === 'ADMIN' || user.role === 'CUSTOMER') ? user : null; } catch { return null; }
 }
 export function clearAuth(): void { localStorage.removeItem(SESSION_KEY); }
 export function isAdmin(user: AppUser | null): boolean { return user?.role === 'ADMIN'; }
