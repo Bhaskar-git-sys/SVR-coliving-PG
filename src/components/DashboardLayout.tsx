@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
 import {
-  Building2,
   LayoutGrid,
   Users,
   CreditCard,
@@ -8,8 +7,8 @@ import {
   UserCircle,
   LogOut,
   ChevronDown,
-  Home,
 } from 'lucide-react';
+import logo from '../assets/svr-logo.jpeg';
 import type { Page, OwnerAccount } from '@/types';
 
 interface DashboardLayoutProps {
@@ -55,8 +54,12 @@ export default function DashboardLayout({
           <div className="flex items-center justify-between h-16">
             {/* Brand */}
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-gold-400 to-gold-600 flex items-center justify-center shadow-lg shadow-gold-500/20">
-                <Building2 className="w-5 h-5 text-navy-900" />
+              <div className="w-12 h-12 rounded-xl bg-black/20 border border-gold-400/20 flex items-center justify-center shadow-lg shadow-gold-500/20 overflow-hidden">
+                <img
+                  src={logo}
+                  alt="SVR logo"
+                  className="w-full h-full object-contain p-1"
+                />
               </div>
               <div className="hidden sm:block">
                 <p className="font-display font-bold text-lg leading-none">{owner.pgName}</p>
